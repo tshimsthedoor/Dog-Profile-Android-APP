@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,32 +26,49 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ProfilePage(){
-    Column(horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()) {
-        Image(painter = painterResource(id = R.drawable.thed),
-            contentDescription = "husky",
-            modifier = Modifier
-                .size(200.dp)
-                .clip(CircleShape)
-                .border(
-                    width = 2.dp,
-                    color = Color.Red,
-                    shape = CircleShape
-                ),
-            contentScale = ContentScale.Crop
-        )
+    Card() {
+        Column(horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxSize()) {
+            Image(painter = painterResource(id = R.drawable.thed),
+                contentDescription = "husky",
+                modifier = Modifier
+                    .size(200.dp)
+                    .clip(CircleShape)
+                    .border(
+                        width = 2.dp,
+                        color = Color.Red,
+                        shape = CircleShape
+                    ),
+                contentScale = ContentScale.Crop
+            )
 
-        Text(text = "Siberian Husky")
-        Text(text = "Germany")
+            Text(text = "Siberian Husky")
+            Text(text = "Germany")
 
-        Row(horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier.fillMaxWidth().padding(16.dp)) {
-            ProfileState("150", "Followers")
-            ProfileState("100", "Following")
-            ProfileState("25", "Posts")
+            Row(horizontalArrangement = Arrangement.SpaceEvenly,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)) {
+                ProfileState("150", "Followers")
+                ProfileState("100", "Following")
+                ProfileState("25", "Posts")
 
+            }
+
+            Row(horizontalArrangement = Arrangement.SpaceEvenly,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)) {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Follow user")
+                }
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Direct message")
+                }
+            }
 
         }
+
     }
 }
 
