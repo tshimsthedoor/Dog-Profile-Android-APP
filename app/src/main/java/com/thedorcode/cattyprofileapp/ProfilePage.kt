@@ -2,9 +2,12 @@ package com.thedorcode.cattyprofileapp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -39,13 +42,22 @@ fun ProfilePage(){
         Text(text = "Siberian Husky")
         Text(text = "Germany")
 
-        Row {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(text = "150", fontWeight = FontWeight.Bold)
-                Text(text = "Followers")
+        Row(horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+            ProfileState("150", "Followers")
+            ProfileState("100", "Following")
+            ProfileState("25", "Posts")
 
-            }
+
         }
+    }
+}
+
+@Composable
+fun ProfileState(count: String, title:String){
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(text = count, fontWeight = FontWeight.Bold)
+        Text(text = title)
     }
 }
 
